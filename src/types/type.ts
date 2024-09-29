@@ -9,12 +9,18 @@ export interface Recipe {
   thumbnail: string;
   tutorials: Tutorial[];
   recipe_ingredients: RecipeIngredient[];
+  photos: Photo[];
   about: string;
 }
 
 interface Author {
   id: number;
   name: string;
+  photo: string;
+}
+
+interface Photo {
+  id: number;
   photo: string;
 }
 
@@ -37,7 +43,7 @@ interface RecipeIngredient {
   ingredient: Ingredient;
 }
 
-interface Ingredient {
+export interface Ingredient {
   id: number;
   name: string;
   photo: string;
