@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Recipe } from "../types/type";
 
 interface FeaturedRecipeCardProps {
@@ -10,7 +11,7 @@ export default function FeaturedRecipeCard({
   const assetUrl = import.meta.env.VITE_APP_ASSET_URL;
   return (
     <>
-      <a href="details.html" className="card">
+      <Link to={`/recipe/${recipe.slug}`} className="card">
         <div className="relative w-[200px] h-[280px] rounded-[30px] bg-white overflow-hidden">
           <img
             src={`${assetUrl}/${recipe.thumbnail}`}
@@ -39,7 +40,7 @@ export default function FeaturedRecipeCard({
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </>
   );
 }
