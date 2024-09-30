@@ -13,7 +13,11 @@ export default function CategoryFeaturedRecipesWrapper() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_APP_BASE_URL}/category/${slug}`)
+      .get(`${import.meta.env.VITE_APP_BASE_URL}/category/${slug}`, {
+        headers: {
+          "X-API-KEY": import.meta.env.VITE_APP_API_KEY,
+        },
+      })
       .then((response) => {
         setCategory(response.data.data);
         setLoading(false);

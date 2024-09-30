@@ -11,7 +11,11 @@ export default function BrowseFeaturedRecipesWrapper() {
 
   useEffect(() => {
     axios
-      .get(import.meta.env.VITE_APP_BASE_URL + "/recipes")
+      .get(import.meta.env.VITE_APP_BASE_URL + "/recipes", {
+        headers: {
+          "X-API-KEY": import.meta.env.VITE_APP_API_KEY,
+        },
+      })
       .then((response) => {
         setRecipes(response.data.data);
         setLoading(false);

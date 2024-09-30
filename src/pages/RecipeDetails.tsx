@@ -14,7 +14,11 @@ export default function RecipeDetails() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_APP_BASE_URL}/recipe/${slug}`)
+      .get(`${import.meta.env.VITE_APP_BASE_URL}/recipe/${slug}`, {
+        headers: {
+          "X-API-KEY": import.meta.env.VITE_APP_API_KEY,
+        },
+      })
       .then((response) => {
         setRecipe(response.data.data);
         setLoading(false);

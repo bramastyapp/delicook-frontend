@@ -30,7 +30,12 @@ export default function SearchDetails() {
 
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_APP_BASE_URL}/recipes/search?query=${query}`
+        `${import.meta.env.VITE_APP_BASE_URL}/recipes/search?query=${query}`,
+        {
+          headers: {
+            "X-API-KEY": import.meta.env.VITE_APP_API_KEY,
+          },
+        }
       );
       setSearchResult(response.data.data);
     } catch (error) {

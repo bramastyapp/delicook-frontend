@@ -11,7 +11,11 @@ export default function CategoryWrapper() {
 
   useEffect(() => {
     axios
-      .get(import.meta.env.VITE_APP_BASE_URL + "/categories")
+      .get(import.meta.env.VITE_APP_BASE_URL + "/categories", {
+        headers: {
+          "X-API-KEY": import.meta.env.VITE_APP_API_KEY,
+        },
+      })
       .then((response) => {
         setCategories(response.data.data);
         setLoading(false);
